@@ -5,4 +5,4 @@ This is a NP-complete problem known as *k*-SAT.
 
 The *k*-SAT problem can be interpreted as a generalized cover set problem and, therefore, it can be solved by a backtracking algorithm based on the D. Knuth's "Dancing Links X" algorithm.
 
-Besides solving the *k*-SAT problem, the code can receive a exact cover problem and determines whether it has a solution.
+Besides solving the *k*-SAT problem, the code can receive an exact cover problem and determines whether it has a solution.
