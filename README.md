@@ -56,6 +56,22 @@ However, the same criteria cannot be used for the columns representing the claus
 
 In the example above, one attribution that satisfies the *k*-CNF is *x<sub>1</sub>*, *x<sub>2</sub>* and *x<sub>3</sub>* true and *x<sub>4</sub>* false, represented by the rows *x<sub>1</sub>* = 1, *x<sub>2</sub>* = 1, *x<sub>3</sub>* = 1 and *x<sub>4</sub>* = 0 (or, in a compact form, `1110`).
 
+## The X Algorithm ##
+
+The [X algorithm from D. Knuth][KnuthDLX] is a backtracking search algorithm that can be applied to a class of combinatorial puzzle problems, such as to find all solutions of an exact cover problem.
+It's based on a technique called *dancing links*: given a pointer *x* to an element from a double linked list, and let *L*[*x*] and *R*[*x*] be the pointers to the precedent and posterior elements, respectively, then the removal of *x* from the list is given by the operations:
+
+    L[R[x]] <- L[x]
+    R[L[x]] <- R[x]
+
+However, since after removal the element pointed by *x* is still allocated in memory, its return to the list is given by the operations:
+
+    L[R[x]] <- x
+    R[L[x]] <- x
+
+what allow thus return back to the previous stage (*backtrack*).
+
+
 <!---
 Links to external and internal sites.
 -->
