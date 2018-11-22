@@ -59,4 +59,4 @@ In the example above, one attribution that satisfies the *k*-CNF is *x<sub>1</su
 <!---
 Links to external and internal sites.
 -->
-[KunthDLX]: https://arxiv.org/abs/cs/0011047v1
+[KnuthDLX]: https://arxiv.org/abs/cs/0011047v1
