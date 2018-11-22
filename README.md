@@ -58,7 +58,7 @@ In the example above, one attribution that satisfies the *k*-CNF is *x<sub>1</su
 
 ## The X Algorithm ##
 
-The [X algorithm from D. Knuth][KnuthDLX] is a backtracking search algorithm that can be applied to a class of combinatorial puzzle problems, such as to find all solutions of an exact cover problem.
+The [X algorithm from D. Knuth][KnuthDLX] is a backtracking search algorithm that can be applied to a class of combinatorial puzzle problems, that is to find all solutions of an exact cover problem.
 It's based on a technique called *dancing links*: given a pointer *x* to an element from a double linked list, and let *L*[*x*] and *R*[*x*] be the pointers to the precedent and posterior elements, respectively, then the removal of *x* from the list is given by the operations:
 
     L[R[x]] <- L[x]
