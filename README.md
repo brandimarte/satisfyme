@@ -9,7 +9,7 @@ Besides solving the *k*-SAT problem, the code is also able to determine the solu
 
 ## Input and Output ##
 
-For the *k*-CNF, the program reads an input from `stdin` containing integer numbers, where the first line corresponds to "*k n m*" (amount of literals, cardinal of *U* and number of clauses, respectively) and the following lines correspond to the clauses, where a number *i* represents the variable *x<sub>i</sub>* and *-i* its negation *!x<sub>i</sub>* (i.e., *not x<sub>i</sub>*).
+For the *k*-CNF, the program reads an input from `stdin` containing integer numbers, where the first line corresponds to "*k n m*" (amount of literals, cardinal of *U* and number of clauses, respectively) and the following lines correspond to the clauses, where a number *i* represents the variable *x<sub>i</sub>* and *-i* its negation !*x<sub>i</sub>* (i.e., *not x<sub>i</sub>*).
 
 The program output is send to `stdout`.
 With the command line option `-n` the code prints out the number of different attributions that satisfy the input.
