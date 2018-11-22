@@ -3,7 +3,7 @@
 Given a set *U* = {*x<sub>1</sub>, x<sub>2</sub>, ... , x<sub>n</sub>*} of boolean variables (literals) and a boolean formula *k*-CNF (conjunctive normal form composed by "and" of clauses in {*c<sub>1</sub>, c<sub>2</sub>, ..., c<sub>m</sub>*}, where each clause consists in "or" of *k* literals belonging to the set *U* plus respective negations), the main objective of this program consists on searching attributions (true and false) for the set of literals such that the *k*-CNF is satisfied (true).
 This is a NP-complete problem known as *k*-SAT.
 
-The *k*-SAT problem can be interpreted as a generalized cover set problem and, therefore, can be solved by a backtracking algorithm based on the D. Knuth's "Dancing Links X" algorithm.
+The *k*-SAT problem can be interpreted as a generalized cover set problem and, therefore, can be solved by a backtracking algorithm based on the D. Knuth's [Dancing Links X][KnuthDLX] algorithm.
 
 Besides solving the *k*-SAT problem, the code is also able to determine the solutions, if any, of an exact cover set problem.
 
@@ -56,3 +56,7 @@ However, the same criteria cannot be used for the columns representing the claus
 
 In the example above, one attribution that satisfies the *k*-CNF is *x<sub>1</sub>*, *x<sub>2</sub>* and *x<sub>3</sub>* true and *x<sub>4</sub>* false, represented by the rows *x<sub>1</sub>* = 1, *x<sub>2</sub>* = 1, *x<sub>3</sub>* = 1 and *x<sub>4</sub>* = 0 (or, in a compact form, `1110`).
 
+<!---
+Links to external and internal sites.
+-->
+[KunthDLX]: https://arxiv.org/abs/cs/0011047v1
