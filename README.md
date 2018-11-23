@@ -216,22 +216,22 @@ The graphs below show the mean values of the amount of solutions (log scale in b
 One observes that for *m* ~ *c<sub>k</sub>n*, the execution time is fairly higher.
 
 ![2-SAT](/docs/images/k2st.png)
-**2-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+**2-SAT:** Mean values of solutions amount (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
 
 ![2-SAT](/docs/images/k3st.png)
-**2-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+**2-SAT:** Mean values of solutions amount (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
 
 ![4-SAT](/docs/images/k4st.png)
-**4-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+**4-SAT:** Mean values of solutions amount (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
 
 ![5-SAT](/docs/images/k5st.png)
-**5-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+**5-SAT:** Mean values of solutions amount (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
 
 ![8-SAT](/docs/images/k8st.png)
-**8-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+**8-SAT:** Mean values of solutions amount (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
 
 ![10-SAT](/docs/images/k10st.png)
-**10-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+**10-SAT:** Mean values of solutions amount (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
 
 <!---
 Links to external and internal sites.
