@@ -152,6 +152,46 @@ The operation of uncovering a column is done in a reverse way as the covering pr
     
     R[L[c]] <- c
 
+# Adaptation to the *k*-SAT Problem #
+
+As discussed above, the *k*-SAT problem can be mapped to a generalized cover problem, where the primary columns correspond to literals and the secondary ones to clauses.
+That is, the primary columns representing the literals have to be exactly covered, while the columns corresponding to the clauses should be covered at least once, since a clause is satisfied when one or more literals are true.
+
+In order to adequate the X algorithm to the *k*-SAT problem it's enough to modify the parts `Cover column from 'j'` and `Uncover column from 'j'`.
+More specifically, these calls of the algorithms to `cover` and to `uncover` should be changed accordingly.
+
+In the X algorithm described above, besides removing the column's head, it removes also all its rows.
+This is fine for the primary columns, because once selected the row *x<sub>i</sub>* = 0, then the row *x<sub>i</sub>* = 1 cannot be in the solution, and vice-versa.
+However, when covering a secondary column (clause), its rows should not be removed as those rows could correspond to possible solutions that would discarded in case of removal.
+Therefore, for the secondary columns one should only remove the column's head.
+
+Moreover, it's necessary to verify if the head of the secondary column was already removed.
+Since each clause has *k* literals, it's enough to check if the number of elements in the column is equal to *k*.
+Thus, the variation of the cover algorithm for the secondary columns turns out to be:
+
+    If 'S[c] = k', do:
+
+       L[R[c]] <- L[c]
+
+       R[L[c]] <- R[c]
+
+    S[c] <- S[c] - 1
+
+With a similar reasoning, a secondary column is uncovered only when the amount of elements is equal to *k*-1 and, therefore, the uncover algorithm for secondary columns becomes:
+
+    If 'S[c] = k - 1', do:
+
+       L[R[c]] <- c
+
+       R[L[c]] <- c
+
+    S[c] <- S[c] + 1
+
+The structure representing the *k*-SAT problem has to be created in such way that the columns' root is immediately before the primary columns and immediately after the secondary, and in the modified X algorithm one choses to cover always a primary column *c* next to the root.
+Therefore, the *k*-SAT problem can be seen as a scan over a search tree with depth *k*:
+
+![*k*-SAT as search tree.](/docs/images/tree.png)
+***k*-SAT representation as a search tree**
 
 <!---
 Links to external and internal sites.
