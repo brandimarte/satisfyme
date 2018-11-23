@@ -118,7 +118,7 @@ The X algorithm scans the matrix *A* searching recursively for solutions as foll
 
     Uncover column 'c'.
 
-where *D*, *U*, *L* and *R* are pointers to the elements above and below in the column, and to the left and to the right in the row, respectively, and *C*[*j*] represents the column at which the element *j* belongs to.
+where *D*, *U*, *L* and *R* are pointers to the elements above and below in the column, and to the left and to the right in the row, respectively, and *C*[ *j* ] represents the column at which the element *j* belongs to.
 The operation of covering a column consists in removing the column head and all the rows it contains from top to bottom:
 
     L[R[c]] <- L[c]
@@ -135,7 +135,7 @@ The operation of covering a column consists in removing the column head and all 
 
           S[C[j]] <- S[C[j]] - 1
 
-where *S*[*C*[*j*]] is the counter of the amount of elements at column *j*.
+where *S*[*C*[ *j* ]] is the counter of the amount of elements at column *j*.
 The operation of uncovering a column is done in a reverse way as the covering procedure, i.e., from bottom to top:
 
     For 'i <- U[c], U[U[c]], ...', while 'i != c', do:
