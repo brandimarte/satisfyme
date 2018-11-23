@@ -71,6 +71,87 @@ However, since after removal the element pointed by *x* is still allocated in me
 
 what allow thus return back to the previous stage (*backtrack*).
 
+Given a matrix *A* of `0s` and `1s`, the X algorithm searches for all sets of rows containing exactly one `1` at each column.
+The matrix *A* is then represented only by the `1s`, with circular double linked lists for the rows and columns.
+
+Each `1` in the matrix is represented by an structure containing four pointers for the preceding and posterior elements in the row and column, in addition to a pointer to the head of the column which it belongs to:
+
+    typedef struct node_struct {
+       struct node_struct *left, *right; /* predecessor and successor at row */
+       struct node_struct *up, *down; /* predecessor and successor at column */
+       struct col_struct *col; /* column containing this node */
+    } node;
+
+The columns' lists possess a head and the heads themselves also form a circular double linked list with a head called `root`.
+Each element from a column list has an identifier given by a *string*, a counter with the updated amount of elements in the column and pointers to the precedent and posterior elements in the list and to the root:
+
+    typedef struct col_struct {
+       node head; /* list head (root) */
+       int len; /* actual number of items in this column list (not including head) */
+       char name[max_name]; /* symbolic identifier of the column for printing */
+       struct col_struct *prev, *next; /* neighbor columns */
+    } column;
+
+The X algorithm scans the matrix *A* searching recursively for solutions as follows:
+
+    If 'A' is empty, print actual solution and return.
+
+    Otherwise, choose a column 'c' and do:
+
+       Cover column 'c'.
+
+       For 'r <- D[c], D[D[c]], ...', while 'r != c', do:
+
+          Include 'r' in the partial solution: 'partial <- r'.
+
+          For 'j <- R[r], R[R[r]], ...', while 'j != r', do:
+
+             Cover column from 'j' (i.e. 'C[j]').
+
+          Recursively call this algorithm for the reduced matrix 'A'.
+
+          Assign previous values: 'r <- partial' and 'c <- c[r]'.
+
+          For 'j <- L[r], L[L[r]], ...', while 'j != r', do:
+
+             Uncover column 'C[j]'.
+
+    Uncover column 'c'.
+
+where *D*, *U*, *L* and *R* are pointers to the elements above and below in the column, and to the left and to the right in the row, respectively, and *C*[*j*] represents the column at which the element *j* belongs to.
+The operation of covering a column consists in removing the column head and all the rows it contains from top to bottom:
+
+    L[R[c]] <- L[c]
+    
+    R[L[c]] <- R[c]
+
+    For 'i <- D[c], D[D[c]], ...', while 'i != c', do:
+
+       For 'j <- R[i], R[R[i]], ...', while 'j != i', do:
+
+          U[D[j]] <- U[j]
+
+          D[U[j]] <- D[j]
+
+          S[C[j]] <- S[C[j]] - 1
+
+where *S*[*C*[*j*]] is the counter of the amount of elements at column *j*.
+The operation of uncovering a column is done in a reverse way as the covering procedure, i.e., from bottom to top:
+
+    For 'i <- U[c], U[U[c]], ...', while 'i != c', do:
+
+       For 'j <- L[i], L[L[i]], ....', while 'j != i', do:
+
+          S[C[j]] <- S[C[j]] + 1
+
+          U[D[j]] <- j
+
+          D[U[j]] <- j
+
+    L[R[c]] <- c
+    
+    R[L[c]] <- c
+
 
 <!---
 Links to external and internal sites.
