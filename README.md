@@ -195,7 +195,46 @@ Therefore, the *k*-SAT problem can be seen as a scan over a search tree with dep
 ![*k*-SAT as search tree.](/docs/images/tree.png)
 ***k*-SAT representation as a search tree**
 
+# Results and Critical Point Analysis #
+
+The probability that a *k*-CNF being satisfiable depends on the amount of clauses (*m*) and of literals (*n*).
+If the amount of clauses to be satisfied is large and the mount of literals is small, then smaller is the chances of the *k*-CNF being satisfiable.
+On the other hand, if the number of literals is large and the amount of clauses is small, then higher are the chances of the *k*-CNF to be satisfiable.
+It is believed that for all *k* there exists a constant *c<sub>k</sub>* with the following property:
+
+> Let *q* a constant and suppose that *n* tend to infinity. If *m* >= (*c<sub>k</sub>*+*q*)*n*, then the *k*-CNF is almost-certainly not satisfiable, while if *m* <= (*c<sub>k</sub>*-*q*)*n*, then it is almost-certainly satisfiable.
+
+To estimate the constant *c<sub>k</sub>* for different values of *k*, the routine `random_ksat.py` from [H. Yuen and J. Bebel][yuen] has been used to generate pseudo-random instances of *k*-CNF, with a small modification to fulfill the input format described above.
+For a fixed value of *k*, the quantities *n* >= *k* and *m* >= 1 were varied and, for each triple (*k*, *n*, *m*) a total of 50 pseudo-random instances of *k*-CNF were generated, from where the mean values of the amount of solutions and the execution time were calculated.
+The obtained estimates for the constant *c<sub>k</sub>* are shown below:
+
+|*k*            |   2   |   3   |   4   |   5   |    8   |   10   |
+| ------------- |:-----:|:-----:|:-----:|:-----:|:------:|:------:|
+|*c<sub>k</sub>*|  2.44 |  5.18 | 10.76 | 21.87 | 177.00 | 709.79 |
+
+The graphs below show the mean values of the amount of solutions (log scale in both axis) and the execution time the plots (log sale in time), as a function of the number of clauses *m* and for different number of literals *n*.
+One observes that for *m* ~ *c<sub>k</sub>n*, the execution time is fairly higher.
+
+![2-SAT](/docs/images/k2st.png)
+**2-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+
+![2-SAT](/docs/images/k3st.png)
+**2-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+
+![4-SAT](/docs/images/k4st.png)
+**4-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+
+![5-SAT](/docs/images/k5st.png)
+**5-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+
+![8-SAT](/docs/images/k8st.png)
+**8-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+
+![10-SAT](/docs/images/k10st.png)
+**10-SAT:** Mean values the amount of solutions (**a**) and execution time in seconds (**b**) as a function of *m*, taken for different *n*.
+
 <!---
 Links to external and internal sites.
 -->
 [KnuthDLX]: https://arxiv.org/abs/cs/0011047v1
+[yuen]: http://toughsat.appspot.com
