@@ -2,6 +2,8 @@
 
 # SatisfyMe! #
 
+[https://brandimarte.github.io/coding/SatisfyMe.html](https://brandimarte.github.io/coding/SatisfyMe.html)
+
 Given a set *U* = {*x<sub>1</sub>, x<sub>2</sub>, ... , x<sub>n</sub>*} of boolean variables (literals) and a boolean formula *k*-CNF (conjunctive normal form composed by "and" of clauses in {*c<sub>1</sub>, c<sub>2</sub>, ..., c<sub>m</sub>*}, where each clause consists in "or" of *k* literals belonging to the set *U* plus respective negations), the main objective of this program consists on searching attributions (true and false) for the set of literals such that the *k*-CNF is satisfied (true).
 This is a NP-complete problem known as *k*-SAT.
 
